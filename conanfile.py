@@ -17,6 +17,7 @@ required_conan_version = ">=1.53.0"
 
 
 class CairoConan(ConanFile):
+    version = "1.18.0"
     name = "cairo"
     description = "Cairo is a 2D graphics library with support for multiple output devices"
     topics = ("cairo", "graphics")
