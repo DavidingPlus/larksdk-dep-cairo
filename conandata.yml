@@ -1,7 +1,7 @@
 sources:
   "1.18.0":
     sha256: "abf8fba4d510086a492783c3e0828e90b32734738fd80906595617d229d02bab"
-    url: "../es/res/cairo-1.18.0-linux.tar.bz2"
+    url: "res/cairo-1.18.0-linux.tar.bz2"
 patches:
   "1.18.0":
     - patch_file: "patches/1.18.0-msvc-alloca.patch"

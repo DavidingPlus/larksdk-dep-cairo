@@ -17,7 +17,9 @@ required_conan_version = ">=1.53.0"
 
 
 class CairoConan(ConanFile):
+    # conan export 和 conan export-pkg 命令需要 conanfile.py 中指定版本。
     version = "1.18.0"
+
     name = "cairo"
     description = "Cairo is a 2D graphics library with support for multiple output devices"
     topics = ("cairo", "graphics")
@@ -65,8 +67,8 @@ class CairoConan(ConanFile):
 
     def export_sources(self):
         export_conandata_patches(self)
-        # 导出源代码压缩包，注意导出目录的位置和导出的 conanfile.py 的相对位置关系。
-        copy(self, "res/cairo-1.18.0-linux.tar.bz2", self.recipe_folder, self.export_sources_folder)
+        # 导出源代码压缩包，并让压缩包在 ~/.conan2/p/ 目录的 res/ 目录与 conanfile.py 和 conandata.yml 同级，减少一次从 es/ 目录拷贝到 s/ 目录的拷贝操作。
+        copy(self, "res/cairo-1.18.0-linux.tar.bz2", self.recipe_folder, self.export_folder)
 
     def config_options(self):
         if self.settings.os == "Windows":
